@@ -134,8 +134,8 @@ def process_neighbours(a, b, current_pattern):
 
     """
 
-    count = count_neighbours(a,b,current_pattern)
-    
+    count = count_neighbours(a, b, current_pattern)
+
     # Condition 1
     if current_pattern[a][b] == 1 and count < 2:
         return 0
@@ -149,7 +149,8 @@ def process_neighbours(a, b, current_pattern):
     else:
         return current_pattern[a][b]
 
-def count_neighbours(a,b,current_pattern):
+
+def count_neighbours(a, b, current_pattern):
     """
     This function counts the neighbours of a particular cell.
 
@@ -187,19 +188,21 @@ def main():
         print "================================"
 
         try:
-            rows = int(raw_input("Enter the no.of rows > ").replace(" ",''))
-        except ValueError:
-            print "Oops!  That was no valid number.  Try again..."
-            continue
-    
-        try:
-            columns = int(raw_input("Enter the no.of columns > ").replace(" ",''))
+            rows = int(raw_input("Enter the no.of rows > ").replace(" ", ''))
         except ValueError:
             print "Oops!  That was no valid number.  Try again..."
             continue
 
         try:
-            generations = int(raw_input("Enter the no.of generations > ").replace(" ",''))
+            columns = int(
+                raw_input("Enter the no.of columns > ").replace(" ", ''))
+        except ValueError:
+            print "Oops!  That was no valid number.  Try again..."
+            continue
+
+        try:
+            generations = int(
+                raw_input("Enter the no.of generations > ").replace(" ", ''))
         except ValueError:
             print "Oops!  That was no valid number.  Try again..."
             continue
@@ -225,7 +228,7 @@ def main():
         else:
             print "Please input postive integer number for rows and columns"
 
-        replay =  raw_input("Do you want to play again(y/n) ? > ").strip()
+        replay = raw_input("Do you want to play again(y/n) ? > ").strip()
         if replay.lower() == 'n' or replay.lower() == 'no':
             break
 
