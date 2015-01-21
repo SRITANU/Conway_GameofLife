@@ -183,16 +183,22 @@ def main():
     current_generation = []
     next_generation = []
 
-    for i in range(generations):
-        print "Conway's Game of Life -- Generation " + str(i + 1)
-        print_twodimensional_pattern(
-            generate_random_pattern(columns, rows, current_generation))
-        binary_array = pattern_to_binary_converter(
-            columns, rows, current_generation)
-        next_generation = next_generation_pattern_generator(
-            columns, rows, binary_array, next_generation)
-        time.sleep(time_delay)
-        current_generation, next_generation = next_generation, current_generation
+    if rows > 0 and columns > 0:
+        if generations > 0:
+            for i in range(generations):
+                print "Conway's Game of Life -- Generation " + str(i + 1)
+                print_twodimensional_pattern(
+                    generate_random_pattern(columns, rows, current_generation))
+                binary_array = pattern_to_binary_converter(
+                    columns, rows, current_generation)
+                next_generation = next_generation_pattern_generator(
+                    columns, rows, binary_array, next_generation)
+                time.sleep(time_delay)
+                current_generation, next_generation = next_generation, current_generation
+        else:
+            print "Please input positive integer for number of generations"
+    else:
+        print "Please input postive integer number for rows and columns"
 
 if __name__ == '__main__':
     main()
