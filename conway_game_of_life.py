@@ -179,19 +179,19 @@ def main():
         print "================================"
 
         try:
-            rows = int(raw_input("Enter the no.of rows > "))
+            rows = int(raw_input("Enter the no.of rows > ").replace(" ",''))
         except ValueError:
             print "Oops!  That was no valid number.  Try again..."
             continue
     
         try:
-            columns = int(raw_input("Enter the no.of columns > "))
+            columns = int(raw_input("Enter the no.of columns > ").replace(" ",''))
         except ValueError:
             print "Oops!  That was no valid number.  Try again..."
             continue
 
         try:
-            generations = int(raw_input("Enter the no.of generations > "))
+            generations = int(raw_input("Enter the no.of generations > ").replace(" ",''))
         except ValueError:
             print "Oops!  That was no valid number.  Try again..."
             continue
@@ -217,7 +217,7 @@ def main():
         else:
             print "Please input postive integer number for rows and columns"
 
-        replay =  raw_input("Do you want to play again(y/n) ? > ")
+        replay =  raw_input("Do you want to play again(y/n) ? > ").strip()
         if replay.lower() == 'n' or replay.lower() == 'no':
             break
 
