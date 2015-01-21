@@ -12,11 +12,7 @@ of the grid, follow these four rules:
 
 Examples: * indicates live cell, . indicates dead cell
 
-##Hint:
-=======
-A particular cell has eight cells in a [Moore neighbourhood](http://en.wikipedia.org/wiki/Moore_neighborhood),as illustrated in the following diagram:
-
-| (i-1,j-1) | (i-1,j)  | (i-1,j+1) |
-|  (i,j-1)  |  (i,j)   |  (i,j+1)  |
-| (i+1,j-1) | (i+1,j)  | (i+1,j+1) |
-
+##Instructions:
+Just run *python conway_game_of_life.py*.
+Give user inputs for rows,colums and generations.
+To get a feel of animation input the maximum number of rows and colums that can fit in the screen.
