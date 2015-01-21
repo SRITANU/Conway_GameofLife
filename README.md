@@ -13,6 +13,6 @@ of the grid, follow these four rules:
 Examples: * indicates live cell, . indicates dead cell
 
 ##Instructions:
-Just run *python conway_game_of_life.py*.
+Just run **python conway_game_of_life.py**.
 Give user inputs for rows,colums and generations.
 To get a feel of animation input the maximum number of rows and colums that can fit in the screen.
