@@ -1,5 +1,4 @@
 # Conway's Game of Life:
-========================
 A program to calculate the next generation of [Conway's game of life](http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life),
 given any starting position. You start with a two dimensional grid
 of cells, where each cell is either alive or dead. The grid is finite,
@@ -17,9 +16,9 @@ Examples: * indicates live cell, . indicates dead cell
 =======
 A particular cell has eight cells in a [Moore neighbourhood](http://en.wikipedia.org/wiki/Moore_neighborhood),as illustrated in the following diagram:
 
-(i-1,j-1) | (i-1,j) | (i-1,j+1)
--------------------------------
-(i,j-1)   |  (i,j)  |  (i,j+1)
--------------------------------
-(i+1,j-1) | (i+1,j) | (i+1,j+1)
+|(i-1,j-1) | (i-1,j) | (i-1,j+1)|
+|----------|---------|----------|
+| (i,j-1)  |  (i,j)  |  (i,j+1) |
+|----------|---------|----------|
+|(i+1,j-1) | (i+1,j) | (i+1,j+1)|
 
