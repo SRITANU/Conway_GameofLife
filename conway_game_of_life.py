@@ -112,13 +112,12 @@ def next_generation_pattern_generator(cols, rows, binary_array, next_generation)
     # Need to process only the cells except the outside most cells
     for i in range(1, rows - 1):
         for j in range(1, cols - 1):
-            next_generation[i][j] = count_and_process_neighbours(
-                i, j, binary_array)
+            next_generation[i][j] = process_neighbours(i, j, binary_array)
 
     return next_generation
 
 
-def count_and_process_neighbours(a, b, current_pattern):
+def process_neighbours(a, b, current_pattern):
     """
     This function counts the neighbours of a particular cell,decides the value
     of the cell for the next_generation pattern and returns it to the next_
@@ -134,6 +133,25 @@ def count_and_process_neighbours(a, b, current_pattern):
     4. Any dead cell with exactly three live neighbours becomes
        a live cell.
 
+    """
+
+    count = count_neighbours(a,b,current_pattern)
+    
+    # Condition 1
+    if current_pattern[a][b] == 1 and count < 2:
+        return 0
+    # Condition 2
+    if current_pattern[a][b] == 1 and count > 3:
+        return 0
+    # Condition 4
+    if current_pattern[a][b] == 0 and count == 3:
+        return 1
+    # Condition 3
+    else:
+        return current_pattern[a][b]
+
+def count_neighbours(a,b,current_pattern):
+    """
     A particular cells has eight cells in a Moore neighbourhood,as illustrated
     in the following diagram:
 
@@ -148,25 +166,14 @@ def count_and_process_neighbours(a, b, current_pattern):
     the own value of a particular cell should not be taken into account while
     counting and processing the neighbourhood cells.
     """
-
     count = 0
     for j in range(b - 1, b + 2):
         for i in range(a - 1, a + 2):
             if not(i == a and j == b):
                 if current_pattern[i][j] != 'x':
                     count += current_pattern[i][j]
-    # Condition 1
-    if current_pattern[a][b] == 1 and count < 2:
-        return 0
-    # Condition 2
-    if current_pattern[a][b] == 1 and count > 3:
-        return 0
-    # Condition 4
-    if current_pattern[a][b] == 0 and count == 3:
-        return 1
-    # Condition 3
-    else:
-        return current_pattern[a][b]
+
+    return count
 
 
 def main():
