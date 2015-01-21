@@ -25,7 +25,7 @@ import time
 
 def generate_random_pattern(cols, rows, pattern_array):
 	""" 
-	This function generates a random patterned array,if empty.Otherwise,
+	This function generates and returns a random patterned array,if empty.Otherwise,
 	it substitutes '.' in place of 0(dead cells) and '*' in place of 1
 	(live cells).
 	"""
@@ -76,3 +76,74 @@ def print_twodimensional_pattern(pattern_array):
 		for i in row:
 			print i,
 		print
+
+
+def pattern_to_binary_converter(cols, rows, pattern_array):
+	"""
+	This function converts a patterned array into an array consisting of zeros,ones and crosses
+	and returns it.
+	'.' = 0
+	'*' = 1
+	'.'(Outside most dead cells-top,right,left,bottom) = 'x'
+	"""
+
+	for i in range(rows):
+        for j in range(cols):
+            if (i == 0 or j == 0 or (i == rows - 1) or (j == cols - 1)):
+                pattern_array[i][j] = "x"
+            elif array[i][j] == '.':
+                pattern_array[i][j] = 0
+            else:
+                pattern_array[i][j] = 1
+    return pattern_array
+
+
+def next_generation_pattern_generator(cols, rows, current_generation, next_generation):
+	"""
+	Generates the next generation pattern array based on the rules of the game.
+	"""
+
+
+def main():
+	"""
+	The main function where the user is asked to input the no.of rows,columns and generations
+	he/she wants the game to perform on.
+	"""
+
+
+    print "Welcome to Conway's Game of Life"
+    print "================================"
+    rows = int(raw_input("Enter the no.of rows > "))
+    columns = int(raw_input("Enter the no.of columns > "))
+    generations = int(raw_input("Enter the no.of generations > "))
+    time_delay = 0.2
+    current_generation = []
+    next_generation = []
+
+
+    for i in range(generations):
+        print "Conway's Game of Life -- Generation " + str(i+1)
+        print_twodimensional_pattern(generate_random_pattern(columns, rows, current_generation))
+        binary_array = pattern_to_binary_converter(columns, rows, current_generation)
+        next_generation = next_generation_pattern_generator(columns, rows, binary_array, next_generation)
+        time.sleep(time_delay)
+        current_generation, next_generation = next_generation, current_generation
+
+if __name__ == '__main__':
+    main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
