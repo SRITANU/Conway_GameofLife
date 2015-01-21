@@ -1,4 +1,6 @@
 #! /usr/bin/python
+# Author - Sritanu Chakraborty
+# Email - sritanu25@gmail.com
 
 """
 	A program to calculate the next generation of Conway's game of life, 
