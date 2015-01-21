@@ -1,6 +1,7 @@
 #! /usr/bin/python
 # Author - Sritanu Chakraborty
 # Email - sritanu25@gmail.com
+# Date - 21st Jan,2015
 
 """
 A program to calculate the next generation of Conway's game of life,
@@ -173,32 +174,52 @@ def main():
     The main function where the user is asked to input the no.of rows,columns
     and generations he/she wants the game to perform on.
     """
+    while True:
+        print "Welcome to Conway's Game of Life"
+        print "================================"
 
-    print "Welcome to Conway's Game of Life"
-    print "================================"
-    rows = int(raw_input("Enter the no.of rows > "))
-    columns = int(raw_input("Enter the no.of columns > "))
-    generations = int(raw_input("Enter the no.of generations > "))
-    time_delay = 0.2
-    current_generation = []
-    next_generation = []
+        try:
+            rows = int(raw_input("Enter the no.of rows > "))
+        except ValueError:
+            print "Oops!  That was no valid number.  Try again..."
+            continue
+    
+        try:
+            columns = int(raw_input("Enter the no.of columns > "))
+        except ValueError:
+            print "Oops!  That was no valid number.  Try again..."
+            continue
 
-    if rows > 0 and columns > 0:
-        if generations > 0:
-            for i in range(generations):
-                print "Conway's Game of Life -- Generation " + str(i + 1)
-                print_twodimensional_pattern(
-                    generate_random_pattern(columns, rows, current_generation))
-                binary_array = pattern_to_binary_converter(
-                    columns, rows, current_generation)
-                next_generation = next_generation_pattern_generator(
-                    columns, rows, binary_array, next_generation)
-                time.sleep(time_delay)
-                current_generation, next_generation = next_generation, current_generation
+        try:
+            generations = int(raw_input("Enter the no.of generations > "))
+        except ValueError:
+            print "Oops!  That was no valid number.  Try again..."
+            continue
+
+        time_delay = 0.2
+        current_generation = []
+        next_generation = []
+
+        if rows > 0 and columns > 0:
+            if generations > 0:
+                for i in range(generations):
+                    print "Conway's Game of Life -- Generation " + str(i + 1)
+                    print_twodimensional_pattern(
+                        generate_random_pattern(columns, rows, current_generation))
+                    binary_array = pattern_to_binary_converter(
+                        columns, rows, current_generation)
+                    next_generation = next_generation_pattern_generator(
+                        columns, rows, binary_array, next_generation)
+                    time.sleep(time_delay)
+                    current_generation, next_generation = next_generation, current_generation
+            else:
+                print "Please input positive integer for number of generations"
         else:
-            print "Please input positive integer for number of generations"
-    else:
-        print "Please input postive integer number for rows and columns"
+            print "Please input postive integer number for rows and columns"
+
+        replay =  raw_input("Do you want to play again(y/n) ? > ")
+        if replay.lower() == 'n' or replay.lower() == 'no':
+            break
 
 if __name__ == '__main__':
     main()
