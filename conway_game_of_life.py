@@ -119,9 +119,8 @@ def next_generation_pattern_generator(cols, rows, binary_array, next_generation)
 
 def process_neighbours(a, b, current_pattern):
     """
-    This function counts the neighbours of a particular cell,decides the value
-    of the cell for the next_generation pattern and returns it to the next_
-    generation_pattern_generator function.
+    This function decides the value of the cell for the next_generation pattern
+    and returns it to the next_generation_pattern_generator function.
 
     The following are the rules:
     1. Any live cell with fewer than two live neighbours dies,
@@ -152,7 +151,9 @@ def process_neighbours(a, b, current_pattern):
 
 def count_neighbours(a,b,current_pattern):
     """
-    A particular cells has eight cells in a Moore neighbourhood,as illustrated
+    This function counts the neighbours of a particular cell.
+
+    A particular cell has eight cells in a Moore neighbourhood,as illustrated
     in the following diagram:
 
     (i-1,j-1) | (i-1,j) | (i-1,j+1)
