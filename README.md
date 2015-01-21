@@ -16,9 +16,7 @@ Examples: * indicates live cell, . indicates dead cell
 =======
 A particular cell has eight cells in a [Moore neighbourhood](http://en.wikipedia.org/wiki/Moore_neighborhood),as illustrated in the following diagram:
 
-|(i-1,j-1) | (i-1,j) | (i-1,j+1)|
-|----------|---------|----------|
-| (i,j-1)  |  (i,j)  |  (i,j+1) |
-|----------|---------|----------|
-|(i+1,j-1) | (i+1,j) | (i+1,j+1)|
+| (i-1,j-1) | (i-1,j)  | (i-1,j+1) |
+|  (i,j-1)  |  (i,j)   |  (i,j+1)  |
+| (i+1,j-1) | (i+1,j)  | (i+1,j+1) |
 
